@@ -9,8 +9,9 @@ class node{
 //Create Tree class//
 class node{
     constructor(array){
-        this.data = data;
-        this.left = left;
-        this.right = right;
+        this.root = buildTree(array)
+    }
+    function buildTree(array) {
+        
     }
 };
