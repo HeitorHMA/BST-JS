@@ -1,17 +1,19 @@
 //Create Node class//
 class node{
-    constructor(data,left,right){
+    constructor(data){
         this.data = data;
-        this.left = left;
-        this.right = right;
+        this.left = null;
+        this.right = null;
     }
 };
-//Create Tree class//
-class node{
-    constructor(array){
-        this.root = buildTree(array)
+//Create Root//
+let root = null
+
+//Create Function//
+function buildTree (array , start , end){
+    if (start > end){
+        return null
     }
-    function buildTree(array) {
-        
-    }
-};
+    
+
+}
