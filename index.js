@@ -17,3 +17,11 @@ function buildTree (array , start , end){
     
 
 }
+//Create Function//
+function buildTree (array , start , end){
+    if (start > end){
+        return null
+    }
+    
+
+}
