@@ -6,22 +6,6 @@ class node{
         this.right = null;
     }
 };
-//Create Root//
-let root = null
-
-//Create Function//
-function buildTree (array , start , end){
-    if (start > end){
-        return null
-    }
+class BST{
     
-
-}
-//Create Function//
-function buildTree (array , start , end){
-    if (start > end){
-        return null
-    }
-    
-
 }
