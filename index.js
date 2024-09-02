@@ -11,7 +11,7 @@ function createBST(array , start , end){
     let mid = parseInt((start + end) / 2);
     let rootNode = new treeNode (array [mid])
     rootNode.left = createBST (array,start,mid - 1)
-    rootNode.left = createBST (array,mid + 1,end)
+    rootNode.right = createBST (array,mid + 1,end)
     return treeNode
 }
 console.log (createBST(arr , 0 , n - 1))
