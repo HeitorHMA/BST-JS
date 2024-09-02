@@ -7,12 +7,16 @@ class treeNode {
 }}
 let arr = [1,2,3,4,5,6,7];
 let n = arr.length;
+
 function createBST(array , start , end){
+    if (start > end){
+        return null
+    }
     let mid = parseInt((start + end) / 2);
-    let rootNode = new treeNode (array [mid])
-    rootNode.left = createBST (array,start,mid - 1)
-    rootNode.right = createBST (array,mid + 1,end)
-    return rootNode
+    let rootNode = new treeNode(array [mid]);
+    rootNode.left = createBST (array,start,mid - 1);
+    rootNode.right = createBST (array,mid + 1,end);
+    return rootNode;
 }
 function consoleNode (node){
     if (node == null) {
