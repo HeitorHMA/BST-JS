@@ -12,6 +12,15 @@ function createBST(array , start , end){
     let rootNode = new treeNode (array [mid])
     rootNode.left = createBST (array,start,mid - 1)
     rootNode.right = createBST (array,mid + 1,end)
-    return treeNode
+    return rootNode
 }
-console.log (createBST(arr , 0 , n - 1))
+function consoleNode (node){
+    if (node == null) {
+        return null
+    }
+    console.log(node.value + " ")
+    consoleNode(node.left)
+    consoleNode(node.right)
+}
+const proto = createBST (arr , 0 , n-1)
+consoleNode(proto)
