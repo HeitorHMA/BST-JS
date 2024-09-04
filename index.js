@@ -5,7 +5,7 @@ class treeNode {
         this.left = null
         this.right = null
 }}
-let arr = [1,2,3,4,5,6,7];
+let arr = [8,2,7,3,6,4];
 let n = arr.length;
 
 function createBST(array , start , end){
