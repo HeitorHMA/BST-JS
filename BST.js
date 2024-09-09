@@ -24,9 +24,11 @@ function merge (array1 , array2){
 while (fI < firstArr.lenght && sI < secondArr.lenght) {
     if (firstArr[fI] < secondArr[sI]){
         sortedArr.push (firstArr[fI])
+        fI++
     }
     else{
         sortedArr.push (secondArr[sI])
+        sI++
     }}
 }
 
