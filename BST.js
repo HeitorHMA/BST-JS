@@ -18,6 +18,8 @@ function filterDuplicates (array){
 }
 //merge function//
 function merge (array1 , array2){
+    fI = 0;
+    sI =  0;
     firstArr = array1
     secondArr = array2
     sortedArr = [];
@@ -30,6 +32,7 @@ while (fI < firstArr.lenght && sI < secondArr.lenght) {
         sortedArr.push (secondArr[sI])
         sI++
     }}
+    return sortedArr
 }
 
 
@@ -40,4 +43,5 @@ function buildTree(array){
     return treeArray
  }
 const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]
-console.log(buildTree(arr))
+const arr2 = [1, 8, 9, 23, 8, 9, 14, 3, 5, 7, 9, 67, 6345, 324]
+console.log(merge ( arr, arr2)) 
