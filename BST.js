@@ -57,13 +57,18 @@ function sort (array){
     return merge (sort(left) , sort(right));
 }
 
-
 //buildTree Function//
-function buildTree(array){
+function buildTree(array,start,end){
+
     let treeArray = filterDuplicates (array);
-    treeArray = sort(treeArray);   
-    return treeArray
+    treeArray = sort(treeArray); 
+
+    let mid = parseInt((start+end)/2);
+    let node = new Node (array[mid]);
+    node.left = buildTree(array,start,mid-1);
+    node.left = buildTree(array,mid+1,end);
  };
+
+
 const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-const sarg = [14,3,5,2,8];
 console.log(buildTree(arr))
