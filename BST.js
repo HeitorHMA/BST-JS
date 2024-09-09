@@ -56,19 +56,49 @@ function sort (array){
     let right = array.slice(mid)
     return merge (sort(left) , sort(right));
 }
+//sort function//
+function clean (array){
+let treeArray = filterDuplicates (array);
+treeArray = sort(treeArray);
+return treeArray}
 
 //buildTree Function//
 function buildTree(array,start,end){
-
-    let treeArray = filterDuplicates (array);
-    treeArray = sort(treeArray); 
+    if(start> end){
+        return null
+    };
 
     let mid = parseInt((start+end)/2);
     let node = new Node (array[mid]);
     node.left = buildTree(array,start,mid-1);
-    node.left = buildTree(array,mid+1,end);
+    node.right = buildTree(array,mid+1,end);
+    return node
  };
-
-
-const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-console.log(buildTree(arr))
+//apresentation tree//
+function present(node){
+    if (node == null){
+        return;
+    }
+    console.log(node.data + "");
+    present(node.left);
+    present(node.right);
+}
+//testing grounds//
+let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+arr = clean(arr);
+let n = arr.length;
+let nana = buildTree(arr,0,n-1)
+//idk//
+const prettyPrint = (node, prefix = "", isLeft = true) => {
+    if (node === null) {
+      return;
+    }
+    if (node.right !== null) {
+      prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+    }
+    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+    if (node.left !== null) {
+      prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+    }
+  };
+  prettyPrint(nana)
