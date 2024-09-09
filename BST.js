@@ -61,8 +61,9 @@ function sort (array){
 //buildTree Function//
 function buildTree(array){
     let treeArray = filterDuplicates (array);
+    treeArray = sort(treeArray);   
     return treeArray
  };
 const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 const sarg = [14,3,5,2,8];
-console.log(sort(sarg))
+console.log(buildTree(arr))
