@@ -16,9 +16,19 @@ class Tree {
 function filterDuplicates (array){
     return array.filter((value,index) => array.indexOf(value) === index);
 }
-//merge sort function//
-
-
+//merge function//
+function merge (array1 , array2){
+    firstArr = array1
+    secondArr = array2
+    sortedArr = [];
+while (fI < firstArr.lenght && sI < secondArr.lenght) {
+    if (firstArr[fI] < secondArr[sI]){
+        sortedArr.push (firstArr[fI])
+    }
+    else{
+        sortedArr.push (secondArr[sI])
+    }}
+}
 
 
 
@@ -27,5 +37,5 @@ function buildTree(array){
     let treeArray = filterDuplicates (array);
     return treeArray
  }
-const arr = [1,2,3,4,5,6,1,2,3,4,5]
+const arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]
 console.log(buildTree(arr))
