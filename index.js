@@ -5,7 +5,7 @@ class treeNode {
         this.left = null
         this.right = null
 }}
-let arr = [1,2,3,4,5,6,7,8];
+let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 let n = arr.length;
 
 function createBST(array , start , end){
@@ -28,3 +28,4 @@ function consoleNode (node){
 }
 const proto = createBST (arr , 0 , n-1)
 consoleNode(proto)
+console.log(arr.sort())
