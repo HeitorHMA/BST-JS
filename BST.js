@@ -14,11 +14,12 @@ class Tree {
 }
 //buildTree Function//
 function buildTree(array){
-    
+   let treeArray = filterDuplicates (array);
+   return treeArray
 }
 //filter array function//
 function filterDuplicates (array){
     return array.filter((value,index) => array.indexOf(value) === index);
 }
 const arr = [1,2,3,4,5,6,1,2,3,4,5]
-console.log(filterDuplicates(arr))
+console.log(buildTree(arr))
