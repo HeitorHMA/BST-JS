@@ -10,8 +10,10 @@ class Node{
 //class Tree//
 
 class Tree {
-    constructor(root){
-        this.root = root;
+    constructor(array,start,end){
+        let arrayNew = clean(array);
+        arrayNew = sort(array);
+        this.root = buildTree(arrayNew,start,end);
     }
 }
 //filter array function//
@@ -74,21 +76,24 @@ function buildTree(array,start,end){
     node.right = buildTree(array,mid+1,end);
     return node
  };
-//apresentation tree//
-function present(node){
-    if (node == null){
-        return;
+ //Insert function//
+ function insertNode (root,value){
+    if (root === null){
+        return new Node (value);
     }
-    console.log(node.data + "");
-    present(node.left);
-    present(node.right);
-}
-//testing grounds//
-let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-arr = clean(arr);
-let n = arr.length;
-let nana = buildTree(arr,0,n-1)
-//idk//
+    else if (value === root.data){
+        return root;
+    }
+    else if (value < root.data){
+        root.left = insertNode(root.left,value)
+    }
+    else if(value > root.data){
+        root.right = insertNode(root.right,value)
+    }
+    return root;
+
+ }
+//apresentation tree//
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
@@ -101,4 +106,12 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
       prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   };
-  prettyPrint(nana)
+//testing grounds//
+let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+arr = clean(arr);
+let n = arr.length;
+let nana = new Tree (arr,0,n-1)
+let nunu = (insertNode(nana.root,100))
+//idk//
+
+prettyPrint(nunu)
