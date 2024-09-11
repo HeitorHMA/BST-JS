@@ -57,14 +57,17 @@ function sort (array){
     let left = array.slice(0,mid)
     let right = array.slice(mid)
     return merge (sort(left) , sort(right));
-}
+    }
+
 //sort function//
+
 function clean (array){
 let treeArray = filterDuplicates (array);
 treeArray = sort(treeArray);
 return treeArray}
 
 //buildTree Function//
+
 function buildTree(array,start,end){
     if(start> end){
         return null
@@ -76,6 +79,7 @@ function buildTree(array,start,end){
     node.right = buildTree(array,mid+1,end);
     return node
  };
+
  //Insert function//
  function insertNode (root,value){
     if (root === null){
@@ -93,6 +97,7 @@ function buildTree(array,start,end){
     return root;
 
  }
+
 //apresentation tree//
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
@@ -106,12 +111,30 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
       prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   };
+
+//delete//
+function deleteNode (root,value){
+    if (root === null){
+        return new Node (value);
+    }
+    else if (value === root.data){
+        root.data = null;
+        return root
+    }
+    else if (value < root.data){
+        root.left = insertNode(root.left,value)
+    }
+    else if(value > root.data){
+        root.right = insertNode(root.right,value)
+    }
+    return root;
+ }
 //testing grounds//
 let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 arr = clean(arr);
 let n = arr.length;
 let nana = new Tree (arr,0,n-1)
-let nunu = (insertNode(nana.root,100))
+let nunu = (deleteNode(nana.root,100))
 //idk//
 
-prettyPrint(nunu)
+console.log(nunu)
