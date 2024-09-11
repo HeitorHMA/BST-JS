@@ -112,29 +112,46 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
     }
   };
 
-//delete//
-function deleteNode (root,value){
-    if (root === null){
-        return new Node (value);
+//delete function//
+function deleteNode(tree,x){
+    if (tree.data === null){
+        return null
+    };
+    if (tree.data > x){
+        tree.left = deleteNode (tree.left,x)
     }
-    else if (value === root.data){
-        root.data = null;
-        return root
+    if (tree.data < x){
+        tree.right = deleteNode (tree.right,x)
     }
-    else if (value < root.data){
-        root.left = insertNode(root.left,value)
+    else if (tree.data === x){
+        if (!tree.left && !tree.right){
+            return null
+        }
+        if (!tree.left){
+            return tree.right
+        }
+        if (!tree.right){
+            return tree.left
+        }
+        else if (tree.left && tree.right){
+            while (tree.right.left){
+                tree.right = tree.right.left
+            }
+            tree.data = tree.right.data
+            tree.right = deleteNode(tree.right,tree.right.data)
+        }
     }
-    else if(value > root.data){
-        root.right = insertNode(root.right,value)
-    }
-    return root;
- }
+    return tree
+}
+
 //testing grounds//
-let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67,64 ,65 ,78 ,6345, 324];
 arr = clean(arr);
 let n = arr.length;
-let nana = new Tree (arr,0,n-1)
-let nunu = (deleteNode(nana.root,100))
-//idk//
 
-console.log(nunu)
+let nana = new Tree (arr,0,n-1)
+
+//idk//
+prettyPrint(nana.root)
+
+
