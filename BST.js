@@ -143,8 +143,51 @@ function deleteNode(tree,x){
     }
     return tree
 }
+// FIND(VALUE)//
+function find (root,value){
+    if (root === null){
+        return new Node (value);
+    }
+    else if (value === root.data){
+        return root;
+    }
+    else if (value < root.data){
+        return find(root.left,value)
+    }
+    else if(value > root.data){
+        return find(root.right,value)
+    }
 
+ }
+ //BFS//
+ function bsfOrder(root){
+    if (!root){
+        return [];
+    }
+    const queue = [];
+    const result = [];
+    queue.push(root);
+    while (queue.length > 0){
+        const levelSize = queue.length;
+        const currentLevel = [];
+
+        for (let i = 0; i< levelSize; i++){
+        const node = queue.shift();
+        currentLevel.push(node.data);
+        if (node.left){
+            queue.push(node.left)
+        }
+        if (node.right){
+            queue.push(node.right)
+        }
+    }
+    result.push(currentLevel)
+}
+return result
+}
 //testing grounds//
+//tstn//
+
 let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67,64 ,65 ,78 ,6345, 324];
 arr = clean(arr);
 let n = arr.length;
@@ -152,6 +195,8 @@ let n = arr.length;
 let nana = new Tree (arr,0,n-1)
 
 //idk//
-prettyPrint(nana.root)
+bsfOrder(nana.root)
+console.log(bsfOrder(nana.root))
+
 
 
