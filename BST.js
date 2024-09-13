@@ -185,9 +185,20 @@ function find (root,value){
 }
 return result
 }
-//testing grounds//
-//tstn//
-
+//print InOrder//
+function printInorder(root){
+    if (root){
+        printInorder(root.left)
+        console.log(root.data)
+        printInorder(root.right)
+    }
+}
+// print PostOrder//
+function printPostorder(root)
+{
+    
+}
+ //tstn//
 let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67,64 ,65 ,78 ,6345, 324];
 arr = clean(arr);
 let n = arr.length;
@@ -195,8 +206,8 @@ let n = arr.length;
 let nana = new Tree (arr,0,n-1)
 
 //idk//
-bsfOrder(nana.root)
-console.log(bsfOrder(nana.root))
+prettyPrint(nana.root)
+printInorder(nana.root)
 
 
 
