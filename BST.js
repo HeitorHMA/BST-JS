@@ -196,7 +196,19 @@ function printInorder(root){
 // print PostOrder//
 function printPostorder(root)
 {
-    
+    if (root){
+        printPostorder(root.left)
+        printPostorder(root.right)
+        console.log(root.data)
+    }
+}
+// print PostOrder//
+function printPreorder(root)
+{
+    console.log(root.data)
+    printPretorder(root.left)
+    printPretorder(root.right)
+        
 }
  //tstn//
 let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67,64 ,65 ,78 ,6345, 324];
