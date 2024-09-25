@@ -212,6 +212,8 @@ function printPreorder(root)
     }
         
 }
+// Height //
+// Depth //
  //tstn//
 let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67,64 ,65 ,78 ,6345, 324];
 arr = clean(arr);
