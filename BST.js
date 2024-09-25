@@ -202,12 +202,14 @@ function printPostorder(root)
         console.log(root.data)
     }
 }
-// print PostOrder//
+// print PreOrder//
 function printPreorder(root)
 {
+    if (root){
     console.log(root.data)
-    printPretorder(root.left)
-    printPretorder(root.right)
+    printPreorder(root.left)
+    printPreorder(root.right)
+    }
         
 }
  //tstn//
@@ -220,6 +222,7 @@ let nana = new Tree (arr,0,n-1)
 //idk//
 prettyPrint(nana.root)
 printInorder(nana.root)
-
+printPreorder(nana.root)
+printPostorder(nana.root)
 
 
