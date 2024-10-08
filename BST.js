@@ -213,6 +213,17 @@ function printPreorder(root)
         
 }
 // Height //
+
+function findHeight (node){
+    if (node === null){
+        return 0;
+    }
+    const lHeight = findHeight(node.left);
+    const rHeight = findHeight(node.right);
+
+    return Math.max(lHeight, rHeight) + 1;
+}
+
 // Depth //
  //tstn//
 let arr = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67,64 ,65 ,78 ,6345, 324];
@@ -223,8 +234,4 @@ let nana = new Tree (arr,0,n-1)
 
 //idk//
 prettyPrint(nana.root)
-printInorder(nana.root)
-printPreorder(nana.root)
-printPostorder(nana.root)
-
-
+console.log (findHeight(nana.root))
